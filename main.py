@@ -24,7 +24,7 @@ class ExpensesCalculator:
     
     return message
   
-  def __check_command(self, input_command):
+  def __process_command(self, input_command):
     words_in_input_command = input_command.split()
     command = words_in_input_command[0]
     command_move_in = "MOVE_IN"
@@ -40,7 +40,7 @@ class ExpensesCalculator:
     return message
   
   def main(self, input_command):
-    message = self.__check_command(input_command)
+    message = self.__process_command(input_command)
 
 if __name__ == "__main__":
   calculator = ExpensesCalculator()
