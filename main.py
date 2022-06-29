@@ -6,7 +6,9 @@ class ExpensesCalculator:
   def __init__(self):
     self.__number_of_people = 0
   
-  def __process_move_in(self, name):
+  def __process_move_in(self, words_in_input_command):
+    name = words_in_input_command[1]
+
     if self.__number_of_people < self.__max_number_of_people:
       self.__number_of_people += 1
       message = "SUCCESS"
@@ -15,7 +17,9 @@ class ExpensesCalculator:
     
     return message
   
-  def __process_move_out(self, name):
+  def __process_move_out(self, words_in_input_command):
+    name = words_in_input_command[1]
+
     if self.__number_of_people > self.__number_of_people_in_empty_house:
       self.__number_of_people -= 1
       message = "SUCCESS"
@@ -39,11 +43,9 @@ class ExpensesCalculator:
     command_clear_due = "CLEAR_DUE"
 
     if command == command_move_in:
-      name = words_in_input_command[1]
-      message = self.__process_move_in(name)
+      message = self.__process_move_in(words_in_input_command)
     elif command == command_move_out:
-      name = words_in_input_command[1]
-      message = self.__process_move_out(name)
+      message = self.__process_move_out(words_in_input_command)
     elif command == command_spend:
       message = self.__process_move_out()
     elif command == command_dues:
@@ -57,6 +59,8 @@ class ExpensesCalculator:
   
   def main(self, input_command):
     message = self.__process_command(input_command)
+
+    return message
 
 if __name__ == "__main__":
   calculator = ExpensesCalculator()
