@@ -29,9 +29,28 @@ class ExpensesCalculator:
       message = "HOUSEFUL"
     
     return message
+  
+  def check_member_existence(self, members):
+    is_everyone_a_member = True
+    
+    for member in members:
+      if member in self.__people:
+        continue
+      else:
+        is_everyone_a_member = False
+        break
+    
+    return is_everyone_a_member
 
   def __process_spend(self, words_in_input_command):
-    name = words_in_input_command[1]
+    spend_amount = int(words_in_input_command[1])
+    members = words_in_input_command[2:]
+    is_everyone_a_member = check_member_existence(members)
+
+    if is_everyone_a_member:
+      pass
+    else:
+      message = "MEMBER_NOT_FOUND"
 
     if self.__number_of_people > self.__number_of_people_in_empty_house:
       self.__number_of_people -= 1
