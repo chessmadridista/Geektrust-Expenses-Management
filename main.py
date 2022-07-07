@@ -136,6 +136,9 @@ class ExpensesCalculator:
 
     return error_message
   
+  def __read_input_file(self):
+    pass
+
   def __set_command(self, input_command):
     words_in_input_command = input_command.split()
     command = words_in_input_command[0]
@@ -159,9 +162,6 @@ class ExpensesCalculator:
       message = self.__set_invalid_command()
 
     return message
-  
-  def __read_input_file(self):
-    pass
   
   def main(self):
     input_command = self.__read_input_file()
