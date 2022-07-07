@@ -160,7 +160,11 @@ class ExpensesCalculator:
 
     return message
   
-  def main(self, input_command):
+  def __read_input_file(self):
+    pass
+  
+  def main(self):
+    input_command = self.__read_input_file()
     message = self.__set_command(input_command)
 
     return message
