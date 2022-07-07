@@ -1,3 +1,5 @@
+import operations
+
 class ExpensesCalculator:
   __number_of_people_in_empty_house = 0
   __min_number_of_people = 2
