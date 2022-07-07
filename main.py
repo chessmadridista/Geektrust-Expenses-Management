@@ -167,3 +167,4 @@ class ExpensesCalculator:
 
 if __name__ == "__main__":
   calculator = ExpensesCalculator()
+  print(main())
