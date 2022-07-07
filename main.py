@@ -129,17 +129,17 @@ class ExpensesCalculator:
     command_clear_due = "CLEAR_DUE"
 
     if command == command_move_in:
-      message = self.__process_move_in(words_in_input_command)
+      message = self.__set_move_in(words_in_input_command)
     elif command == command_move_out:
-      message = self.__process_move_out(words_in_input_command)
+      message = self.__set_move_out(words_in_input_command)
     elif command == command_spend:
-      message = self.__process_spend(words_in_input_command)
+      message = self.__set_spend(words_in_input_command)
     elif command == command_dues:
-      message = self.__process_dues(words_in_input_command)
+      message = self.__set_dues(words_in_input_command)
     elif command == command_clear_due:
-      message = self.__process_clear_due(words_in_input_command)
+      message = self.__set_clear_due(words_in_input_command)
     else:
-      message = self.__process_invalid_command()
+      message = self.__set_invalid_command()
 
     return message
   
