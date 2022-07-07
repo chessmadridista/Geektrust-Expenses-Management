@@ -21,8 +21,25 @@ class ExpensesCalculator:
     
     return message
   
+  def __has_dues(self, words_in_input_command):
+    are_dues_clear = True
+    dues = self.__get_dues(words_in_input_command)
+
+    for due in dues:
+      due_amount = due.split()
+
+      if due_amount == "0":
+        continue
+      else:
+        are_dues_clear = False
+        break
+    
+    return are_dues_clear
+  
   def __set_move_out(self, words_in_input_command):
     name = words_in_input_command[1]
+    are_paid_dues_clear = self.__has_dues(words_in_input_command)
+    are_received_dues_clear = self.__has_dues(words_in_input_command)
 
     if self.__number_of_people > self.__number_of_people_in_empty_house:
       self.__number_of_people -= 1
@@ -129,17 +146,17 @@ class ExpensesCalculator:
     command_clear_due = "CLEAR_DUE"
 
     if command == command_move_in:
-      message = self.__process_move_in(words_in_input_command)
+      message = self.__set_move_in(words_in_input_command)
     elif command == command_move_out:
-      message = self.__process_move_out(words_in_input_command)
+      message = self.__set_move_out(words_in_input_command)
     elif command == command_spend:
-      message = self.__process_spend(words_in_input_command)
+      message = self.__set_spend(words_in_input_command)
     elif command == command_dues:
-      message = self.__process_dues(words_in_input_command)
+      message = self.__set_dues(words_in_input_command)
     elif command == command_clear_due:
-      message = self.__process_clear_due(words_in_input_command)
+      message = self.__set_clear_due(words_in_input_command)
     else:
-      message = self.__process_invalid_command()
+      message = self.__set_invalid_command()
 
     return message
   
