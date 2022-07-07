@@ -143,21 +143,21 @@ class ExpensesCalculator:
     words_in_input_command = input_command.split()
     command = words_in_input_command[0]
     command_move_in = "MOVE_IN"
-    command_move_out = "MOVE_OUT"
     command_spend = "SPEND"
     command_dues = "DUES"
     command_clear_due = "CLEAR_DUE"
+    command_move_out = "MOVE_OUT"
 
     if command == command_move_in:
       message = self.__set_move_in(words_in_input_command)
-    elif command == command_move_out:
-      message = self.__set_move_out(words_in_input_command)
     elif command == command_spend:
       message = self.__set_spend(words_in_input_command)
     elif command == command_dues:
       message = self.__set_dues(words_in_input_command)
     elif command == command_clear_due:
       message = self.__set_clear_due(words_in_input_command)
+    elif command == command_move_out:
+      message = self.__set_move_out(words_in_input_command)
     else:
       message = self.__set_invalid_command()
 
