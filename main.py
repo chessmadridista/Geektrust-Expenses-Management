@@ -5,9 +5,9 @@ class ExpensesCalculator:
 
   def __init__(self):
     self.__number_of_people = 0
-    self.__people = list()
-    self.__total_expenditure = dict()
-    self.__amount_loaned = dict()
+    self.__people = list() # E.g.: ["Sandy", "Mandy", "Pandy"]
+    self.__total_expenditure = dict() # E.g.: { "Sandy": 90, "Mandy": 80, "Pandy": 70 }
+    self.__amount_loaned = dict() # E.g.: { "Sandy": { "Mandy": 20, "Pandy": 0 }, "Mandy": { "Sandy": 20, "Pandy": 0 }, "Pandy": { "Mandy": 20, "Sandy": 0 } }
   
   def __set_move_in(self, words_in_input_command):
     name = words_in_input_command[1]
@@ -20,8 +20,6 @@ class ExpensesCalculator:
       message = "HOUSEFUL"
     
     return message
-  
-  
   
   def __get_member_existence(self, members):
     is_everyone_a_member = True
@@ -166,7 +164,7 @@ class ExpensesCalculator:
     return message
   
   def main(self):
-    input_command = self.__read_input_file()
+    input_commands = self.__read_input_file()
     message = self.__set_command(input_command)
 
     return message
