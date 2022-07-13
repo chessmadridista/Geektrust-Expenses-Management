@@ -31,13 +31,13 @@ class ExpensesCalculator:
     if command == command_move_in:
       message = op.move_in.MoveIn().__set_move_in(words_in_input_command)
     elif command == command_spend:
-      message = op.move_in.MoveIn().__set_spend(words_in_input_command)
+      message = op.spend.Spend().__set_spend(words_in_input_command)
     elif command == command_dues:
-      message = op.move_in.MoveIn().__set_dues(words_in_input_command)
+      message = op.dues.Dues().__set_dues(words_in_input_command)
     elif command == command_clear_due:
-      message = op.move_in.MoveIn().__set_clear_due(words_in_input_command)
+      message = op.clear_due.ClearDue().__set_clear_due(words_in_input_command)
     elif command == command_move_out:
-      message = op.move_in.MoveIn().__set_move_out(words_in_input_command)
+      message = op.move_out.MoveOut().__set_move_out(words_in_input_command)
     else:
       message = self.__get_invalid_command_message()
 
