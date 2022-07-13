@@ -11,17 +11,7 @@ class ExpensesCalculator:
     self.__total_expenditure = dict() # E.g.: { "Sandy": 90, "Mandy": 80, "Pandy": 70 }
     self.__amount_loaned = dict() # E.g.: { "Sandy": { "Mandy": 20, "Pandy": 0 }, "Mandy": { "Sandy": 20, "Pandy": 0 }, "Pandy": { "Mandy": 20, "Sandy": 0 } }
   
-  def __set_move_in(self, words_in_input_command):
-    name = words_in_input_command[1]
-
-    if self.__number_of_people < self.__max_number_of_people:
-      self.__number_of_people += 1
-      self.__people.append(name)
-      message = "SUCCESS"
-    else:
-      message = "HOUSEFUL"
-    
-    return message
+  
   
   def __get_member_existence(self, members):
     is_everyone_a_member = True
