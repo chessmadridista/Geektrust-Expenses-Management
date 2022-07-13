@@ -16,7 +16,7 @@ class ExpensesCalculator:
 
     return error_message
   
-  def __read_input_file(self):
+  def __get_input_file(self):
     pass
 
   def __set_command(self, input_command):
@@ -44,10 +44,12 @@ class ExpensesCalculator:
     return message
   
   def main(self):
-    input_commands = self.__read_input_file()
-    message = self.__set_command(input_commands)
+    input_commands = self.__get_input_file()
 
-    return message
+    for command in input_commands:
+      message = self.__set_command(command)
+
+      yield message
 
 if __name__ == "__main__":
   calculator = ExpensesCalculator()
