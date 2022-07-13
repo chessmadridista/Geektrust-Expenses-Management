@@ -43,13 +43,17 @@ class ExpensesCalculator:
 
     return message
   
-  def main(self):
-    input_commands = self.__get_input_file()
-
+  def __set_command_order_wise(input_commands):
     for command in input_commands:
       message = self.__set_command(command)
 
       yield message
+  
+  def main(self):
+    input_commands = self.__get_input_file()
+    command_outputs = self.__set_command_order_wise(input_commands)
+
+    print(command_outputs)
 
 if __name__ == "__main__":
   calculator = ExpensesCalculator()
