@@ -1,4 +1,4 @@
-import operations
+import operations as op
 
 class ExpensesCalculator:
   __number_of_people_in_empty_house = 0
@@ -11,7 +11,7 @@ class ExpensesCalculator:
     self.__total_expenditure = dict() # E.g.: { "Sandy": 90, "Mandy": 80, "Pandy": 70 }
     self.__amount_loaned = dict() # E.g.: { "Sandy": { "Mandy": 20, "Pandy": 0 }, "Mandy": { "Sandy": 20, "Pandy": 0 }, "Pandy": { "Mandy": 20, "Sandy": 0 } }
 
-  def __get_invalid_command(self):
+  def __get_invalid_command_message(self):
     error_message = "The command is not valid! Please try again with a different command."
 
     return error_message
@@ -29,23 +29,23 @@ class ExpensesCalculator:
     command_move_out = "MOVE_OUT"
 
     if command == command_move_in:
-      message = self.__set_move_in(words_in_input_command)
+      message = op.move_in.MoveIn().__set_move_in(words_in_input_command)
     elif command == command_spend:
-      message = self.__set_spend(words_in_input_command)
+      message = op.move_in.MoveIn().__set_spend(words_in_input_command)
     elif command == command_dues:
-      message = self.__set_dues(words_in_input_command)
+      message = op.move_in.MoveIn().__set_dues(words_in_input_command)
     elif command == command_clear_due:
-      message = self.__set_clear_due(words_in_input_command)
+      message = op.move_in.MoveIn().__set_clear_due(words_in_input_command)
     elif command == command_move_out:
-      message = self.__set_move_out(words_in_input_command)
+      message = op.move_in.MoveIn().__set_move_out(words_in_input_command)
     else:
-      message = self.__set_invalid_command()
+      message = self.__get_invalid_command_message()
 
     return message
   
   def main(self):
     input_commands = self.__read_input_file()
-    message = self.__set_command(input_command)
+    message = self.__set_command(input_commands)
 
     return message
 
