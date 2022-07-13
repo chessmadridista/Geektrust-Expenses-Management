@@ -1,9 +1,9 @@
 import operations as op
 
 class ExpensesCalculator:
-  __number_of_people_in_empty_house = 0
-  __min_number_of_people = 2
-  __max_number_of_people = 3
+  __NUMBER_OF_PEOPLE_IN_EMPTY_HOUSE = 0
+  __MIN_NUMBER_OF_PEOPLE = 2
+  __MAX_NUMBER_OF_PEOPLE = 3
 
   def __init__(self):
     self.__number_of_people = 0
@@ -12,9 +12,9 @@ class ExpensesCalculator:
     self.__amount_loaned = dict() # E.g.: { "Sandy": { "Mandy": 20, "Pandy": 0 }, "Mandy": { "Sandy": 20, "Pandy": 0 }, "Pandy": { "Mandy": 20, "Sandy": 0 } }
 
   def __get_invalid_command_message(self):
-    error_message = "The command is not valid! Please try again with a different command."
+    ERROR_MESSAGE = "The command is not valid! Please try again with a different command."
 
-    return error_message
+    return ERROR_MESSAGE
   
   def __get_input_file(self):
     pass
@@ -22,21 +22,21 @@ class ExpensesCalculator:
   def __set_command(self, input_command):
     words_in_input_command = input_command.split()
     command = words_in_input_command[0]
-    command_move_in = "MOVE_IN"
-    command_spend = "SPEND"
-    command_dues = "DUES"
-    command_clear_due = "CLEAR_DUE"
-    command_move_out = "MOVE_OUT"
+    COMMAND_MOVE_IN = "MOVE_IN"
+    COMMAND_SPEND = "SPEND"
+    COMMAND_DUES = "DUES"
+    COMMAND_CLEAR_DUE = "CLEAR_DUE"
+    COMMAND_MOVE_OUT = "MOVE_OUT"
 
-    if command == command_move_in:
-      message = op.move_in.MoveIn().__set_move_in(words_in_input_command)
-    elif command == command_spend:
+    if command == COMMAND_MOVE_IN:
+      message, self.__number_of_people, self.__people = op.move_in.MoveIn().__set_move_in(words_in_input_command, self.__number_of_people, self.__people)
+    elif command == COMMAND_SPEND:
       message = op.spend.Spend().__set_spend(words_in_input_command)
-    elif command == command_dues:
+    elif command == COMMAND_DUES:
       message = op.dues.Dues().__set_dues(words_in_input_command)
-    elif command == command_clear_due:
+    elif command == COMMAND_CLEAR_DUE:
       message = op.clear_due.ClearDue().__set_clear_due(words_in_input_command)
-    elif command == command_move_out:
+    elif command == COMMAND_MOVE_OUT:
       message = op.move_out.MoveOut().__set_move_out(words_in_input_command)
     else:
       message = self.__get_invalid_command_message()
