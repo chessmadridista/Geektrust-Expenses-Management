@@ -8,7 +8,7 @@ class MoveIn:
 
     if number_of_people < MAX_NUMBER_OF_PEOPLE:
       number_of_people += 1
-      people.append(name)
+      people.add(name)
       message = "SUCCESS"
     else:
       message = "HOUSEFUL"
