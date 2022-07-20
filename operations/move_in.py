@@ -1,12 +1,14 @@
 class MoveIn:
+  __MAX_NUMBER_OF_PEOPLE = 3
+
   def __init__(self):
     pass
 
+  @classmethod
   def __set_move_in(self, words_in_input_command, number_of_people, people):
     name = words_in_input_command[1]
-    MAX_NUMBER_OF_PEOPLE = 3
 
-    if number_of_people < MAX_NUMBER_OF_PEOPLE:
+    if number_of_people < self.__MAX_NUMBER_OF_PEOPLE:
       number_of_people += 1
       people.add(name)
       message = "SUCCESS"
