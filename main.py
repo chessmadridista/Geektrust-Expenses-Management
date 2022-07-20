@@ -43,7 +43,7 @@ class ExpensesCalculator:
 
     return message
   
-  def __set_command_order_wise(input_commands):
+  def __set_command_order_wise(self, input_commands):
     for command in input_commands:
       message = self.__set_command(command)
 
