@@ -7,7 +7,7 @@ class ExpensesCalculator:
 
   def __init__(self):
     self.__number_of_people = 0
-    self.__people = list() # E.g.: ["Sandy", "Mandy", "Pandy"]
+    self.__people = set() # E.g.: ["Sandy", "Mandy", "Pandy"]
     self.__total_expenditure = dict() # E.g.: { "Sandy": 90, "Mandy": 80, "Pandy": 70 }
     self.__amount_loaned = dict() # E.g.: { "Sandy": { "Mandy": 20, "Pandy": 0 }, "Mandy": { "Sandy": 20, "Pandy": 0 }, "Pandy": { "Mandy": 20, "Sandy": 0 } }
 
