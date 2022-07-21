@@ -5,10 +5,10 @@ class MoveIn:
     pass
 
   @classmethod
-  def __set_move_in(self, words_in_input_command, number_of_people, people):
+  def __set_move_in(cls, words_in_input_command, number_of_people, people):
     name = words_in_input_command[1]
 
-    if number_of_people < self.__MAX_NUMBER_OF_PEOPLE:
+    if number_of_people < cls.__MAX_NUMBER_OF_PEOPLE:
       number_of_people += 1
       people.add(name)
       message = "SUCCESS"
