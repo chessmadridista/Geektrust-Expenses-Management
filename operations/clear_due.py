@@ -1,9 +1,5 @@
 class ClearDue:
-  def __init__(self):
-    pass
-
-  
-  
+  @staticmethod
   def __has_dues(self, words_in_input_command):
     are_dues_clear = True
     dues = self.__get_dues(words_in_input_command)
@@ -19,7 +15,8 @@ class ClearDue:
     
     return are_dues_clear
 
-  def __set_clear_due(self, words_in_input_command):
+  @staticmethod
+  def set_clear_due(self, words_in_input_command):
     name = words_in_input_command[1]
 
     if self.__number_of_people > self.__number_of_people_in_empty_house:

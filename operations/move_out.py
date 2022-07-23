@@ -1,8 +1,6 @@
 class MoveOut:
-  def __init__(self):
-    pass
-
-  def __set_move_out(self, words_in_input_command):
+  @staticmethod
+  def set_move_out(self, words_in_input_command):
     name = words_in_input_command[1]
     are_paid_dues_clear = self.__has_dues(words_in_input_command)
     are_received_dues_clear = self.__has_dues(words_in_input_command)
