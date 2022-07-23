@@ -1,7 +1,5 @@
 class Spend:
-  def __init__(self):
-    pass
-
+  @staticmethod
   def __get_member_existence(self, members):
     is_everyone_a_member = True
     
@@ -14,6 +12,7 @@ class Spend:
     
     return is_everyone_a_member
 
+  @staticmethod
   def __set_total_expenditure(self, spend_amount, members):
     member_owed = members[0]
     no_of_members = len(members)
@@ -27,6 +26,7 @@ class Spend:
 
     return True
   
+  @staticmethod
   def __set_member_loans(self, spend_amount, member_owed, members):
     for member in members[1:]:
       if member in self.__amount_loaned[member_owed]:
@@ -36,26 +36,28 @@ class Spend:
     
     return True
   
-  def __set_amount_loaned(self, spend_amount, members):
+  @classmethod
+  def __set_amount_loaned(cls, spend_amount, members):
     member_owed = members[0]
     
-    if member_owed in self.__amount_loaned:
+    if member_owed in cls.__amount_loaned:
       pass
     else:
-      self.__amount_loaned[member_owed] = dict()
+      cls.__amount_loaned[member_owed] = dict()
     
-    self.__set_member_loans(spend_amount, member_owed, members)
+    cls.__set_member_loans(spend_amount, member_owed, members)
 
     return True
 
-  def __set_spend(self, words_in_input_command):
+  @classmethod
+  def set_spend(cls, words_in_input_command):
     spend_amount = int(words_in_input_command[1])
     members = words_in_input_command[2:]
-    is_everyone_a_member = self.__get_member_existence(members)
+    is_everyone_a_member = cls.__get_member_existence(members)
 
     if is_everyone_a_member:
-      self.__set_total_expenditure(spend_amount, members)
-      self.__set_amount_loaned(spend_amount, members)
+      cls.__set_total_expenditure(spend_amount, members)
+      cls.__set_amount_loaned(spend_amount, members)
       message = "SUCCESS"
     else:
       message = "MEMBER_NOT_FOUND"
