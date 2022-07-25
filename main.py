@@ -46,13 +46,11 @@ class ExpensesCalculator:
 
       yield message
   
-  def main(self):
-    input_commands = op.load_file("LOL")
-    command_outputs = self.__set_command_order_wise(input_commands)
+def main():
+  input_commands = op.load_file("LOL")
+  command_outputs = self.__set_command_order_wise(input_commands)
 
-    print(command_outputs)
+  print(command_outputs)
 
 if __name__ == "__main__":
-  calculator = ExpensesCalculator()
-
-  print(calculator.main())
+  main()
