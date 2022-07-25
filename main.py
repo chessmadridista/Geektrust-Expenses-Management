@@ -16,9 +16,6 @@ class ExpensesCalculator:
 
     return ERROR_MESSAGE
   
-  def __get_input_file(self):
-    pass
-
   def __set_command(self, input_command):
     words_in_input_command = input_command.split()
     command = words_in_input_command[0]
@@ -50,7 +47,7 @@ class ExpensesCalculator:
       yield message
   
   def main(self):
-    input_commands = self.__get_input_file()
+    input_commands = op.load_file("LOL")
     command_outputs = self.__set_command_order_wise(input_commands)
 
     print(command_outputs)
