@@ -2,10 +2,11 @@ import operations as op
 import auxiliary_operations as aux_op
 
 def main():
-  input_commands = op.load_file("LOL")
-  command_outputs = self.__set_command_order_wise(input_commands)
+  commands = aux_op.load_file()
+  calculator = aux_op.ExpensesCalculator()
+  command_outputs = aux_op.set_command_order_wise(calculator, commands)
 
-  print(command_outputs)
+  return command_outputs
 
 if __name__ == "__main__":
-  main()
+  print(main())
