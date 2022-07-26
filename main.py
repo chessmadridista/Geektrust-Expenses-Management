@@ -4,7 +4,7 @@ import auxiliary_operations as aux_op
 def main():
   commands = aux_op.load_file()
   calculator = aux_op.ExpensesCalculator()
-  command_outputs = aux_op.set_command_order_wise(calculator, commands)
+  command_outputs = calculator.set_command_order_wise(commands)
 
   return command_outputs
 
